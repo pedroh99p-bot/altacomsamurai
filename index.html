@@ -92,9 +92,13 @@
 
         /* Rollers Animados */
         .marquee-wrapper { overflow: hidden; white-space: nowrap; width: 100%; position: relative; display: flex; gap: 2rem;}
-        .marquee-content { display: inline-flex; animation: marquee-scroll 25s linear infinite; gap: 2rem; min-width: 100%; flex-shrink: 0; align-items: center; justify-content: flex-start;}
+        .marquee-content { display: flex; animation: marquee-scroll 25s linear infinite; gap: 2rem; min-width: 100%; flex-shrink: 0; align-items: center; justify-content: flex-start;}
         .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
         @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        
+        /* Roller Reverso */
+        @keyframes marquee-scroll-reverse { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+        .marquee-reverse { animation-name: marquee-scroll-reverse !important; }
 
         .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out; }
         .faq-item.active .faq-content { max-height: 300px; }
@@ -119,7 +123,7 @@
     <!-- Preloader -->
     <div id="preloader" class="fixed inset-0 bg-bg flex flex-col items-center justify-center">
         <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo Samurai" class="w-24 h-24 mb-6 rounded-full shadow-lg">
-        <h2 class="font-display text-2xl text-text mb-2 tracking-wide" data-i18n="preload_title">A verdadeira essência da praia</h2>
+        <h2 class="font-display text-lg sm:text-xl md:text-2xl text-text mb-2 tracking-wide text-center px-4 leading-snug" data-i18n="preload_title">A verdadeira essência da praia</h2>
         <p class="text-text-muted text-sm mb-6" data-i18n="preload_sub">Preparando sua experiência...</p>
         <div class="w-48 h-1 bg-surface rounded-full overflow-hidden">
             <div class="h-full bg-sky w-0 animate-[progress_1.5s_ease-in-out_forwards]"></div>
@@ -128,8 +132,8 @@
 
     <!-- Topbar Roller -->
     <div class="bg-sky h-[36px] flex items-center justify-center overflow-hidden relative z-50">
-        <div id="topbar-roller" class="text-[#0A1628] font-bold text-sm text-center px-4 w-full transition-opacity duration-500">
-            <!-- Conteúdo injetado via JS -->
+        <div id="topbar-roller" class="text-[#0A1628] font-bold text-sm text-center px-4 w-full transition-opacity duration-500 flex">
+            <!-- Conteúdo injetado via JS em duplicidade para loop contínuo -->
         </div>
     </div>
 
@@ -189,7 +193,11 @@
 
     <!-- Mobile Drawer -->
     <div id="mobile-drawer" class="fixed inset-y-0 right-0 w-[75vw] max-w-[300px] bg-surface z-50 transform translate-x-full transition-transform duration-300 border-l border-border flex flex-col">
-        <div class="p-4 flex justify-end">
+        <div class="p-4 flex justify-between items-center border-b border-border/50">
+            <div class="flex items-center gap-2">
+                <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo" class="w-8 h-8 rounded-full">
+                <span class="font-display text-text text-sm tracking-wide">Altinha</span>
+            </div>
             <button id="close-drawer-btn" class="text-text-muted hover:text-text p-2">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
@@ -208,34 +216,34 @@
     <section id="hero" class="relative pt-12 pb-24 md:pt-24 md:pb-32 px-4 overflow-hidden reveal">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-[#0A1628] opacity-30 z-10"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-bg via-[#0A1628]/50 to-transparent z-10"></div>
-            <!-- object-[20%_center] no mobile puxa pra ver a galera da esquerda -->
+            <div class="absolute inset-0 bg-gradient-to-t from-bg via-[#0A1628]/40 to-transparent z-10"></div>
+            <!-- object position focado na lateral esquerda no mobile pra mostrar a galera -->
             <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731395/WhatsApp_Image_2026-04-20_at_21.28.39_thulyl.jpg" 
                  alt="Treino na Praia" 
-                 class="w-full h-full object-cover object-[20%_center] sm:object-[75%_30%] opacity-90 mix-blend-overlay">
+                 class="w-full h-full object-cover object-[65%_45%] md:object-[75%_30%] opacity-90 mix-blend-overlay">
         </div>
 
         <div class="max-w-[1100px] mx-auto relative z-20 text-center flex flex-col items-center">
-            <!-- Badges -->
+            <!-- Badges de Autoridade -->
             <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-6">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-sky/30 bg-sky/10 text-sky text-xs font-bold backdrop-blur-sm">
-                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current text-yellow-400"></i> <span data-i18n="badge_5">Avaliação 5/5 no Google</span>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current text-yellow-400"></i> <span data-i18n="badge_5">Avaliação 5/5</span>
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-sky/30 bg-sky/10 text-sky text-xs font-bold backdrop-blur-sm">
-                    <i data-lucide="waves" class="w-3.5 h-3.5"></i> <span data-i18n="badge_2">Ao ar livre</span>
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> <span data-i18n="badge_3">Guia Certificado</span>
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-sky/30 bg-sky/10 text-sky text-xs font-bold backdrop-blur-sm">
-                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> <span data-i18n="badge_3">Instrutor Certificado</span>
+                    <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> <span>+100 subidas</span>
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-sky/30 bg-sky/10 text-sky text-xs font-bold backdrop-blur-sm">
-                    <i data-lucide="camera" class="w-3.5 h-3.5"></i> <span data-i18n="badge_6">Fotos incríveis inclusas</span>
+                    <i data-lucide="camera" class="w-3.5 h-3.5"></i> <span data-i18n="badge_6">Fotos incríveis</span>
                 </span>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-sky/30 bg-sky/10 text-sky text-xs font-bold backdrop-blur-sm">
                     <i data-lucide="user-check" class="w-3.5 h-3.5"></i> <span data-i18n="badge_7">Ritmo Adaptado</span>
                 </span>
             </div>
 
-            <h1 class="font-display text-[clamp(2rem,7vw,4.5rem)] leading-[1.1] text-text mb-6 mt-4 drop-shadow-lg">
+            <h1 class="font-display text-[clamp(2.2rem,7vw,4.5rem)] leading-[1.1] text-text mb-6 mt-4 drop-shadow-lg">
                 <span data-i18n="hero_title_1">Aprenda altinha com quem</span><br>
                 <span class="text-shine" data-i18n="hero_title_2">vive a praia.</span>
             </h1>
@@ -262,7 +270,8 @@
             <h2 class="font-display text-2xl md:text-3xl mb-2 text-text" data-i18n="vid_title">Sinta a energia do treino</h2>
             <p class="text-text-muted mb-8 max-w-xl mx-auto" data-i18n="vid_sub">Um pouco de como são as aulas na Praia da Macumba com a nossa galera.</p>
             
-            <div class="relative w-full max-w-[320px] md:max-w-[380px] mx-auto rounded-3xl overflow-hidden shadow-2xl border border-border aspect-[4/5] bg-bg group">
+            <div class="relative w-full max-w-[320px] md:max-w-[360px] mx-auto rounded-3xl overflow-hidden shadow-2xl border border-border aspect-[4/5] bg-bg group">
+                <!-- Object bottom fixa o enquadramento na base para não cortar as pessoas jogando -->
                 <video id="promo-video" src="https://res.cloudinary.com/dm9mnc97u/video/upload/v1776732262/VEM_CONHECER_O_ESPORTE_QUE_MAIS_CRESCE_NO_BRASIL_%EF%B8%8F_Imagens-edi%C3%A7%C3%A3o-_ronygomess__j4ikne.mp4" loop muted playsinline class="w-full h-full object-cover object-bottom"></video>
                 
                 <div class="absolute inset-0 bg-black/20 flex flex-col items-center justify-center cursor-pointer" onclick="toggleVideo()">
@@ -279,7 +288,7 @@
         </div>
     </section>
 
-    <!-- Dor e Solução (Flip Cards Vermelhos + Grid Mobile) -->
+    <!-- Dor e Solução (Flip Cards Vermelhos) -->
     <section id="pain" class="py-20 px-4 reveal">
         <div class="max-w-[1100px] mx-auto">
             <h2 class="font-display text-3xl md:text-4xl text-center mb-12" data-i18n="ps_title">Por que aprender com um instrutor faz toda a diferença?</h2>
@@ -360,33 +369,35 @@
         </div>
     </section>
 
+    <!-- Separador Decorativo -->
+    <div class="w-full overflow-hidden leading-none bg-surface border-t border-border mt-10">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[30px] md:h-[40px]">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0A1628"></path>
+        </svg>
+    </div>
+
     <!-- Sobre o Instrutor -->
     <section id="about" class="py-20 bg-surface relative bg-pattern-dots reveal">
         <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] opacity-[0.02] pointer-events-none grayscale z-0">
-        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-20">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[30px] md:h-[40px]">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0A1628"></path>
-            </svg>
-        </div>
 
-        <div class="max-w-[1100px] mx-auto px-4 flex flex-col md:flex-row items-center gap-12 relative z-10 mt-6">
+        <div class="max-w-[1100px] mx-auto px-4 flex flex-col md:flex-row items-center gap-12 relative z-10">
             <div class="w-full md:w-1/3 flex justify-center">
                 <div class="relative w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-surface-2 group">
                     <div class="absolute inset-0 bg-sky/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
                     <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731395/WhatsApp_Image_2026-04-20_at_21.27.37_ulbrmk.jpg" 
-                         alt="Wallace Samurai Costa" 
+                         alt="Alan Schimidt" 
                          class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
 
             <div class="w-full md:w-2/3">
                 <h2 class="font-display text-3xl md:text-4xl text-text mb-6" data-i18n="about_title">Quem é o Samurai?</h2>
-                <p class="text-text-muted text-lg mb-6" data-i18n="about_p1">Sou Wallace "Samurai" Costa. Criador de uma metodologia única na Praia da Macumba, minha missão é te fazer dominar a altinha com leveza e confiança, do zero ao avançado.</p>
+                <p class="text-text-muted text-lg mb-6" data-i18n="about_p1">Sou Alan Schimidt, o "Samurai". Criador de uma metodologia única na Praia da Macumba. Minha missão é te fazer dominar a altinha com leveza e técnica.</p>
                 
                 <ul class="space-y-4 mb-8">
-                    <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-teal shrink-0 mt-0.5"></i><span class="text-text font-medium" data-i18n="about_b1">Metodologia exclusiva adaptada perfeitamente ao seu nível.</span></li>
-                    <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-teal shrink-0 mt-0.5"></i><span class="text-text font-medium" data-i18n="about_b2">Treinos focados nos fundamentos reais de praia.</span></li>
-                    <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-teal shrink-0 mt-0.5"></i><span class="text-text font-medium" data-i18n="about_b3">Aprenda a jogar sem medo em qualquer roda do Brasil.</span></li>
+                    <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-teal shrink-0 mt-0.5"></i><span class="text-text font-medium" data-i18n="about_b1">Metodologia exclusiva adaptada ao seu nível.</span></li>
+                    <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-teal shrink-0 mt-0.5"></i><span class="text-text font-medium" data-i18n="about_b2">Treinos focados nos fundamentos reais.</span></li>
+                    <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-teal shrink-0 mt-0.5"></i><span class="text-text font-medium" data-i18n="about_b3">Aprenda a jogar sem medo em qualquer roda.</span></li>
                 </ul>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-10">
@@ -421,7 +432,11 @@
     <!-- Roller 2 -->
     <section class="bg-surface border-y border-border overflow-hidden reveal">
         <div class="marquee-wrapper py-4">
-            <div class="marquee-content font-display text-sky text-xl uppercase tracking-wider">
+            <div class="marquee-content font-display text-sky text-lg md:text-xl uppercase tracking-wider">
+                <span>Altinha na Macumba • Do zero ao avançado • Aulas ao ar livre • PT | EN | ES • Técnica real de praia • Marque sua aula hoje • </span>
+                <span>Altinha na Macumba • Do zero ao avançado • Aulas ao ar livre • PT | EN | ES • Técnica real de praia • Marque sua aula hoje • </span>
+            </div>
+            <div class="marquee-content font-display text-sky text-lg md:text-xl uppercase tracking-wider" aria-hidden="true">
                 <span>Altinha na Macumba • Do zero ao avançado • Aulas ao ar livre • PT | EN | ES • Técnica real de praia • Marque sua aula hoje • </span>
                 <span>Altinha na Macumba • Do zero ao avançado • Aulas ao ar livre • PT | EN | ES • Técnica real de praia • Marque sua aula hoje • </span>
             </div>
@@ -431,7 +446,7 @@
     <!-- Quiz Interativo -->
     <section id="quiz" class="py-20 px-4 reveal relative">
         <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] opacity-[0.02] pointer-events-none grayscale z-0">
-        <div class="max-w-2xl mx-auto bg-surface border border-border rounded-3xl p-8 shadow-2xl relative overflow-hidden z-10">
+        <div class="max-w-2xl mx-auto bg-surface border border-border rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden z-10">
             <div class="absolute top-0 left-0 w-full h-1.5 bg-bg">
                 <div id="quiz-progress" class="h-full bg-teal w-[20%] transition-all duration-500"></div>
             </div>
@@ -447,24 +462,29 @@
         </div>
     </section>
 
+    <!-- Separador Decorativo -->
+    <div class="w-full overflow-hidden leading-none bg-surface-2 border-t border-border mt-10">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[30px] md:h-[40px]">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0D2137"></path>
+        </svg>
+    </div>
+
     <!-- Planos (Carrossel Horizontal Arrastável) -->
     <section id="levels" class="py-20 px-4 bg-surface-2 relative bg-pattern-grid reveal">
-        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-20">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[30px] md:h-[40px]">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0D2137"></path>
-            </svg>
-        </div>
+        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] opacity-[0.02] pointer-events-none grayscale z-0">
         
-        <div class="max-w-[1100px] mx-auto relative z-10 mt-6">
+        <div class="max-w-[1100px] mx-auto relative z-10">
             <div class="text-center mb-12">
                 <h2 class="font-display text-3xl md:text-4xl text-text mb-4" data-i18n="lvl_title">Escolha seu plano</h2>
                 <p class="text-text-muted" data-i18n="lvl_sub">Arraste para os lados para ver as opções</p>
             </div>
 
-            <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pt-8 pb-8 hide-scrollbar px-4 w-full max-w-[1000px] mx-auto" id="plans-carousel">
+            <!-- Alterado w-[85vw] para w-[80vw] no card para encaixe peeking -->
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pt-8 pb-8 hide-scrollbar px-4 w-full max-w-[1050px] mx-auto" id="plans-carousel">
+                
                 <!-- Prata -->
-                <div class="w-[85vw] sm:w-[300px] flex-shrink-0 snap-center bg-surface border border-gray-400 rounded-2xl p-6 relative flex flex-col">
-                    <div class="w-10 h-10 bg-gray-400/20 rounded-full flex items-center justify-center mb-4 border border-gray-400 text-gray-300"><i data-lucide="medal" class="w-5 h-5"></i></div>
+                <div class="w-[80vw] sm:w-[320px] flex-shrink-0 snap-center bg-surface border border-gray-400 rounded-2xl p-6 relative flex flex-col hover:border-gray-300 transition-colors shadow-lg">
+                    <div class="w-12 h-12 bg-gray-400/20 rounded-full flex items-center justify-center mb-4 border border-gray-400 text-gray-300"><i data-lucide="medal" class="w-6 h-6"></i></div>
                     <h3 class="font-display text-2xl text-gray-300 mb-1" data-i18n="l1_title">Prata</h3>
                     <p class="text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-4" data-i18n="l1_target">Iniciantes</p>
                     <div class="text-lg font-display text-text mb-4 mt-2" data-i18n="l_consult">Consultar valor</div>
@@ -473,13 +493,13 @@
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-gray-400 shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l1_f2">Sequências básicas</span></li>
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-gray-400 shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l1_f3">Primeiro contato com roda</span></li>
                     </ul>
-                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Prata" class="w-full block text-center bg-transparent border border-gray-400 text-gray-300 font-bold py-2.5 rounded-full hover:bg-gray-400/10 transition text-sm" data-i18n="l1_btn">Consultar Prata</a>
+                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Prata" class="w-full block text-center bg-transparent border border-gray-400 text-gray-300 font-bold py-3 rounded-full hover:bg-gray-400/10 transition text-sm" data-i18n="l1_btn">Consultar Prata</a>
                 </div>
 
                 <!-- Ouro (Destaque) -->
-                <div class="w-[85vw] sm:w-[300px] flex-shrink-0 snap-center bg-surface border-2 border-yellow-400 rounded-2xl p-6 relative flex flex-col shadow-[0_0_20px_rgba(250,204,21,0.15)] transform sm:-translate-y-2">
-                    <div class="absolute top-0 right-0 bg-yellow-400 text-[#0A1628] text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wide" data-i18n="l2_badge">Recomendado</div>
-                    <div class="w-10 h-10 bg-yellow-400/20 rounded-full flex items-center justify-center mb-4 border border-yellow-400 text-yellow-400 mt-2"><i data-lucide="star" class="w-5 h-5 fill-current"></i></div>
+                <div class="w-[80vw] sm:w-[320px] flex-shrink-0 snap-center bg-surface border-2 border-yellow-400 rounded-2xl p-6 relative flex flex-col shadow-[0_0_20px_rgba(250,204,21,0.15)] transform sm:-translate-y-3">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-[#0A1628] text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wide whitespace-nowrap" data-i18n="l2_badge">Mais Recomendado</div>
+                    <div class="w-12 h-12 bg-yellow-400/20 rounded-full flex items-center justify-center mb-4 border border-yellow-400 text-yellow-400 mt-2"><i data-lucide="star" class="w-6 h-6 fill-current"></i></div>
                     <h3 class="font-display text-2xl text-yellow-400 mb-1" data-i18n="l2_title">Ouro</h3>
                     <p class="text-[10px] font-bold uppercase text-yellow-500 tracking-wider mb-4" data-i18n="l2_target">Intermediários</p>
                     <div class="text-lg font-display text-text mb-4 mt-2" data-i18n="l_consult">Consultar valor</div>
@@ -488,13 +508,13 @@
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l2_f2">Dinâmicas de roda e ritmo</span></li>
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l2_f3">Leitura de bola avançada</span></li>
                     </ul>
-                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Ouro" class="w-full block text-center bg-yellow-400 text-[#0A1628] font-bold py-2.5 rounded-full hover:scale-105 transition shadow-lg shine-effect text-sm" data-i18n="l2_btn">Consultar Ouro</a>
+                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Ouro" class="w-full block text-center bg-yellow-400 text-[#0A1628] font-bold py-3 rounded-full hover:scale-105 transition shadow-lg shine-effect text-sm" data-i18n="l2_btn">Consultar Ouro</a>
                 </div>
 
                 <!-- Diamante (Individual) -->
-                <div class="w-[85vw] sm:w-[300px] flex-shrink-0 snap-center bg-surface border border-sky rounded-2xl p-6 relative flex flex-col">
-                    <div class="w-10 h-10 bg-sky/20 rounded-full flex items-center justify-center mb-4 border border-sky text-sky"><i data-lucide="diamond" class="w-5 h-5"></i></div>
-                    <h3 class="font-display text-2xl text-sky mb-1" data-i18n="l3_title">Individual</h3>
+                <div class="w-[80vw] sm:w-[320px] flex-shrink-0 snap-center bg-surface border border-sky rounded-2xl p-6 relative flex flex-col hover:border-sky/80 transition-colors shadow-lg">
+                    <div class="w-12 h-12 bg-sky/20 rounded-full flex items-center justify-center mb-4 border border-sky text-sky"><i data-lucide="diamond" class="w-6 h-6"></i></div>
+                    <h3 class="font-display text-2xl text-sky mb-1" data-i18n="l3_title">Diamante</h3>
                     <p class="text-[10px] font-bold uppercase text-sky/80 tracking-wider mb-4" data-i18n="l3_target">Personal / VIP</p>
                     <div class="text-lg font-display text-text mb-4 mt-2" data-i18n="l_consult">Consultar valor</div>
                     <ul class="space-y-3 mb-6 flex-grow">
@@ -502,27 +522,13 @@
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-sky shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l3_f2">Correção minuciosa</span></li>
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-sky shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l3_f3">Evolução acelerada</span></li>
                     </ul>
-                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Individual" class="w-full block text-center bg-transparent border border-sky text-sky font-bold py-2.5 rounded-full hover:bg-sky/10 transition text-sm" data-i18n="l3_btn">Consultar Individual</a>
+                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Diamante" class="w-full block text-center bg-transparent border border-sky text-sky font-bold py-3 rounded-full hover:bg-sky/10 transition text-sm" data-i18n="l3_btn">Consultar Diamante</a>
                 </div>
 
-                <!-- CabanaCopa Hostel -->
-                <div class="w-[85vw] sm:w-[300px] flex-shrink-0 snap-center bg-surface border border-green rounded-2xl p-6 relative flex flex-col">
-                    <div class="absolute top-0 right-0 bg-green text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wide">Exclusivo</div>
-                    <div class="w-10 h-10 bg-green/20 rounded-full flex items-center justify-center mb-4 border border-green text-green mt-2"><i data-lucide="building" class="w-5 h-5"></i></div>
-                    <h3 class="font-display text-2xl text-green mb-1" data-i18n="l4_title">Hostel</h3>
-                    <p class="text-[10px] font-bold uppercase text-green/80 tracking-wider mb-4" data-i18n="l4_target">Hóspedes CabanaCopa</p>
-                    <div class="text-lg font-display text-text mb-4 mt-2" data-i18n="l_consult">Consultar valor</div>
-                    <ul class="space-y-3 mb-6 flex-grow">
-                        <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-green shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l4_f1">Tarifa especial parceria</span></li>
-                        <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-green shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l4_f2">Integração de hóspedes</span></li>
-                        <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-green shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l4_f3">Experiência carioca</span></li>
-                    </ul>
-                    <a href="https://wa.me/5521900000000?text=Sou%20hóspede%20do%20CabanaCopa%20e%20quero%20saber%20da%20Altinha" class="w-full block text-center bg-transparent border border-green text-green font-bold py-2.5 rounded-full hover:bg-green/10 transition text-sm" data-i18n="l4_btn">Consultar Parceria</a>
-                </div>
             </div>
             
-            <div class="flex justify-center items-center gap-2 mt-4">
-                <i data-lucide="move-horizontal" class="w-5 h-5 text-text-muted opacity-60"></i>
+            <div class="flex justify-center items-center gap-2 mt-4 pointer-events-none">
+                <i data-lucide="move-horizontal" class="w-6 h-6 text-text-muted opacity-60"></i>
             </div>
         </div>
     </section>
@@ -541,7 +547,6 @@
                                 <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky to-teal flex items-center justify-center font-bold text-[#0A1628]">R</div>
                                 <div><h4 class="font-bold text-sm">Rodrigo M.</h4><p class="text-xs text-text-muted" data-i18n="t1_loc">Recreio, RJ</p></div>
                             </div>
-                            <!-- SVG Google Logo -->
                             <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                         </div>
                         <div class="flex gap-1 mb-3 text-yellow-400">
@@ -583,7 +588,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Cópia exata para Loop -->
+            
             <div class="marquee-content pb-4 !items-stretch" aria-hidden="true">
                 <div class="bg-surface border border-border p-6 rounded-2xl w-[320px] min-h-[220px] flex-shrink-0 flex flex-col justify-between whitespace-normal">
                     <div>
@@ -634,10 +639,14 @@
         </div>
     </section>
 
-    <!-- Roller 3 (Pós Depoimentos) -->
+    <!-- Roller 3 (Pós Depoimentos com Direção Reversa) -->
     <section class="bg-sky py-3 overflow-hidden relative z-20 reveal">
         <div class="marquee-wrapper">
-            <div class="marquee-content font-display text-[#0A1628] text-sm uppercase tracking-wider">
+            <div class="marquee-content marquee-reverse font-display text-[#0A1628] text-sm uppercase tracking-wider">
+                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521900000000" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
+                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521900000000" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
+            </div>
+            <div class="marquee-content marquee-reverse font-display text-[#0A1628] text-sm uppercase tracking-wider" aria-hidden="true">
                 <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521900000000" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
                 <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521900000000" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
             </div>
@@ -653,35 +662,35 @@
                 <div class="faq-item bg-surface border border-border rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="px-6 py-4 flex justify-between items-center pointer-events-none">
                         <h4 class="font-bold text-text pr-4" data-i18n="f1_q">Preciso ter experiência para começar?</h4>
-                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus pointer-events-none"></i>
                     </div>
                     <div class="faq-content bg-bg px-6"><p class="text-text-muted text-sm pb-4" data-i18n="f1_a">De jeito nenhum! Temos níveis para iniciantes. A ideia é te ensinar os fundamentos do zero, no seu ritmo.</p></div>
                 </div>
                 <div class="faq-item bg-surface border border-border rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="px-6 py-4 flex justify-between items-center pointer-events-none">
                         <h4 class="font-bold text-text pr-4" data-i18n="f2_q">Qual o equipamento necessário?</h4>
-                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus pointer-events-none"></i>
                     </div>
                     <div class="faq-content bg-bg px-6"><p class="text-text-muted text-sm pb-4" data-i18n="f2_a">Só você e sua disposição. Venha com roupa de praia e protetor. Eu levo a bola e o material.</p></div>
                 </div>
                 <div class="faq-item bg-surface border border-border rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="px-6 py-4 flex justify-between items-center pointer-events-none">
                         <h4 class="font-bold text-text pr-4" data-i18n="f6_q">Preciso levar minha própria bola?</h4>
-                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus pointer-events-none"></i>
                     </div>
                     <div class="faq-content bg-bg px-6"><p class="text-text-muted text-sm pb-4" data-i18n="f6_a">Não! Nós disponibilizamos bolas oficiais da Mikasa para garantir alta qualidade.</p></div>
                 </div>
                 <div class="faq-item bg-surface border border-border rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="px-6 py-4 flex justify-between items-center pointer-events-none">
                         <h4 class="font-bold text-text pr-4" data-i18n="f7_q">Qual é a duração de cada aula?</h4>
-                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus pointer-events-none"></i>
                     </div>
                     <div class="faq-content bg-bg px-6"><p class="text-text-muted text-sm pb-4" data-i18n="f7_a">Em média 1 hora, dividida entre aquecimento, técnica e jogo prático na roda.</p></div>
                 </div>
                 <div class="faq-item bg-surface border border-border rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="px-6 py-4 flex justify-between items-center pointer-events-none">
                         <h4 class="font-bold text-text pr-4" data-i18n="f5_q">Quais os horários disponíveis?</h4>
-                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-sky transition-transform shrink-0 lucide-plus pointer-events-none"></i>
                     </div>
                     <div class="faq-content bg-bg px-6"><p class="text-text-muted text-sm pb-4" data-i18n="f5_a">Temos horários bem cedo e fim da tarde. Chame no WhatsApp para disponibilidade.</p></div>
                 </div>
@@ -711,14 +720,15 @@
         </div>
     </section>
 
-    <!-- Oferta Final -->
-    <section id="final_cta" class="relative py-28 md:py-36 px-4 overflow-hidden reveal">
-        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 transform rotate-180">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[30px] md:h-[40px]">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0A1628"></path>
-            </svg>
-        </div>
+    <!-- Separador Decorativo -->
+    <div class="w-full overflow-hidden leading-none bg-surface border-t border-border">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[30px] md:h-[40px]">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0A1628"></path>
+        </svg>
+    </div>
 
+    <!-- Oferta Final Limpa -->
+    <section id="final_cta" class="relative py-28 md:py-36 px-4 overflow-hidden reveal">
         <div class="absolute inset-0 z-0 bg-[#0A1628]">
             <div class="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/40 to-[#0A1628]/10 z-10"></div>
             <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731395/WhatsApp_Image_2026-04-20_at_21.28.58_b2nyvs.jpg" 
@@ -728,7 +738,7 @@
 
         <div class="max-w-[800px] mx-auto relative z-20 text-center flex flex-col items-center mt-6">
             <h2 class="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.1] text-text mb-6 drop-shadow-lg" data-i18n="final_title">
-                Domine a altinha e jogue com confiança.
+                Domine a altinha e viva a verdadeira essência da praia.
             </h2>
             <p class="text-white text-[clamp(1.1rem,2.5vw,1.25rem)] max-w-2xl leading-relaxed mb-10 font-medium drop-shadow-md" data-i18n="final_subtitle">
                 Aprenda com quem respira o esporte. Ganhe técnica, faça amigos e seja destaque em qualquer roda do Brasil.
@@ -773,7 +783,7 @@
         </div>
     </footer>
 
-    <!-- Botões Flutuantes fixos com logos reais -->
+    <!-- Botões Flutuantes fixos -->
     <a href="https://wa.me/5521900000000" target="_blank" class="fixed bottom-24 right-5 w-[52px] h-[52px] bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-[0_4px_16px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-[9999] btn-pulse" aria-label="WhatsApp">
         <svg fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     </a>
@@ -787,7 +797,7 @@
                 preload_title: "A verdadeira essência da praia", preload_sub: "Preparando sua experiência...",
                 nav_about: "Instrutor", nav_levels: "Planos", nav_testimonials: "Depoimentos", nav_faq: "FAQ", nav_cta: "Agendar aula",
                 hero_title_1: "Aprenda altinha com quem", hero_title_2: "vive a praia.", hero_subtitle: "Aulas na Praia da Macumba com o Samurai — do iniciante que nunca tocou numa bola até o avançado que quer dominar a técnica de verdade.", hero_btn_primary: "Quero começar agora", hero_btn_secondary: "Ver os níveis",
-                badge_5: "Avaliação 5/5 no Google", badge_2: "Ao ar livre", badge_3: "Instrutor Certificado", badge_6: "Fotos incríveis inclusas", badge_7: "Ritmo Adaptado",
+                badge_5: "Avaliação 5/5", badge_3: "Guia Certificado", badge_6: "Fotos incríveis", badge_7: "Ritmo Adaptado",
                 vid_title: "Sinta a energia do treino", vid_sub: "Um pouco de como são as aulas na Praia da Macumba com a nossa galera.", vid_btn_on: "Ativar Som",
                 ps_title: "Por que aprender com um instrutor faz toda a diferença?",
                 fc1_front_title: "Fica batendo mal e não evolui", fc1_front_desc: "Sem técnica, a bola cai e a frustração aumenta.", fc1_back_title: "Fundamentos reais", fc1_back_desc: "Ensino postura e toque correto para evoluir rápido.",
@@ -795,30 +805,29 @@
                 fc3_front_title: "Não sabe praticar", fc3_front_desc: "Sem método, os treinos individuais não evoluem.", fc3_back_title: "Drills para a vida", fc3_back_desc: "Você sai com sequências para praticar em qualquer lugar.",
                 fc4_front_title: "Não sabe competir", fc4_front_desc: "A altinha competitiva tem regras que só a prática ensina.", fc4_back_title: "Visão de jogo", fc4_back_desc: "Táticas de jogo, leitura de bola e posicionamento real.", fc_tap: "toque para ver", fc_btn: "Agendar agora",
                 about_title: "Quem é o Samurai?", 
-                about_p1: "Sou Wallace \"Samurai\" Costa. Criador de uma metodologia única na Praia da Macumba, minha missão é te fazer dominar a altinha com leveza e confiança, do zero ao avançado.", 
-                about_b1: "Metodologia exclusiva adaptada perfeitamente ao seu nível.",
-                about_b2: "Treinos focados nos fundamentos reais de praia.",
-                about_b3: "Aprenda a jogar sem medo em qualquer roda do Brasil.",
+                about_p1: "Sou Alan Schimidt, o \"Samurai\". Criador de uma metodologia única na Praia da Macumba. Minha missão é te fazer dominar a altinha com leveza e técnica.", 
+                about_b1: "Metodologia exclusiva adaptada ao seu nível.",
+                about_b2: "Treinos focados nos fundamentos reais.",
+                about_b3: "Aprenda a jogar sem medo em qualquer roda.",
                 about_cta_wa: "Falar no WhatsApp", about_cta_ig: "Ver Instagram", stat_1: "Alunos formados", stat_2: "Anos na Macumba", stat_3: "Níveis atendidos",
                 quiz_title: "Descubra a aula ideal para você", q_step: "Passo",
                 qr_title: "Perfeito! Sua aula está pronta.", qr_desc: "Envie suas respostas pelo WhatsApp para verificarmos os horários disponíveis e começarmos.", qr_btn: "Falar com o Samurai agora",
                 lvl_title: "Escolha seu plano", lvl_sub: "Arraste para os lados para ver as opções", l_consult: "Consultar valor",
                 l1_title: "Prata", l1_target: "Iniciantes", l1_f1: "Fundamentos e postura", l1_f2: "Sequências básicas", l1_f3: "Primeiro contato com roda", l1_btn: "Consultar Prata",
-                l2_badge: "Recomendado", l2_title: "Ouro", l2_target: "Intermediários", l2_f1: "Técnica de toque dominante", l2_f2: "Dinâmicas de roda e ritmo", l2_f3: "Leitura de bola avançada", l2_btn: "Consultar Ouro",
-                l3_title: "Individual", l3_target: "Personal / VIP", l3_f1: "Atenção 100% exclusiva", l3_f2: "Correção minuciosa", l3_f3: "Evolução acelerada", l3_btn: "Consultar Individual",
-                l4_title: "Hostel", l4_target: "Hóspedes CabanaCopa", l4_f1: "Tarifa especial parceria", l4_f2: "Integração de hóspedes", l4_f3: "Experiência carioca", l4_btn: "Consultar Parceria",
+                l2_badge: "Mais Recomendado", l2_title: "Ouro", l2_target: "Intermediários", l2_f1: "Técnica de toque dominante", l2_f2: "Dinâmicas de roda e ritmo", l2_f3: "Leitura de bola avançada", l2_btn: "Consultar Ouro",
+                l3_title: "Diamante", l3_target: "Personal / VIP", l3_f1: "Atenção 100% exclusiva", l3_f2: "Correção minuciosa", l3_f3: "Evolução acelerada", l3_btn: "Consultar Diamante",
                 test_title: "O que a galera diz", t1_loc: "Recreio, RJ", t2_loc: "Barra da Tijuca, RJ", t3_loc: "Tourist, USA",
                 t1_text: "\"Evolução absurda. O Samurai sabe exatamente o que corrigir.\"", t2_text: "\"Eu morria de vergonha. A paciência dele fez eu perder o medo no primeiro dia.\"", t3_text: "\"Great experience! Samurai is an amazing coach.\"",
                 faq_title: "Perguntas frequentes", f1_q: "Preciso ter experiência para começar?", f1_a: "De jeito nenhum! Temos níveis para iniciantes. A ideia é te ensinar os fundamentos do zero, no seu ritmo.", f2_q: "Qual o equipamento necessário?", f2_a: "Só você e sua disposição. Venha com roupa de praia e protetor. Eu levo a bola e o material.", f6_q: "Preciso levar minha própria bola?", f6_a: "Não! Nós disponibilizamos bolas oficiais da Mikasa para garantir alta qualidade.", f7_q: "Qual é a duração de cada aula?", f7_a: "Em média 1 hora, dividida entre aquecimento, técnica e jogo prático na roda.", f5_q: "Quais os horários disponíveis?", f5_a: "Temos horários bem cedo e fim da tarde. Chame no WhatsApp para disponibilidade.",
                 map_title: "Onde ficamos", map_lbl_loc: "Ponto de Encontro", map_val_loc: "Praia da Macumba, Recreio dos Bandeirantes.<br>Acesso pelo quiosque point dos surfistas.", map_cta_book: "Agendar aula", map_cta_route: "Traçar rota",
-                final_title: "Domine a altinha e jogue com confiança.", final_subtitle: "Aprenda com quem respira o esporte. Ganhe técnica, faça amigos e seja destaque em qualquer roda do Brasil.", final_cta: "Agendar minha aula agora",
+                final_title: "Domine a altinha e viva a verdadeira essência da praia.", final_subtitle: "Aprenda com quem respira o esporte. Ganhe técnica, faça amigos e seja destaque em qualquer roda do Brasil.", final_cta: "Agendar minha aula agora",
                 footer_auth: "A principal escola de altinha do Recreio dos Bandeirantes. Transformando o estilo de vida carioca através do esporte.", footer_prod: "Produzido por Montana"
             },
             en: {
                 preload_title: "The true beach essence", preload_sub: "Preparing your experience...",
                 nav_about: "Instructor", nav_levels: "Plans", nav_testimonials: "Reviews", nav_faq: "FAQ", nav_cta: "Book class",
                 hero_title_1: "Learn altinha with a true", hero_title_2: "beach local.", hero_subtitle: "Classes at Praia da Macumba with Samurai — from absolute beginners to advanced players wanting to master the real technique.", hero_btn_primary: "Start now", hero_btn_secondary: "See levels",
-                badge_5: "5/5 on Google", badge_2: "Outdoors", badge_3: "Certified Instructor", badge_6: "Great photos included", badge_7: "Adapted Pace",
+                badge_5: "5/5 on Google", badge_3: "Certified Guide", badge_6: "Great photos", badge_7: "Adapted Pace",
                 vid_title: "Feel the energy", vid_sub: "A glimpse of our classes at Praia da Macumba.", vid_btn_on: "Unmute",
                 ps_title: "Why learning with an instructor makes all the difference?",
                 fc1_front_title: "Hitting wrong & not improving", fc1_front_desc: "Without technique, the ball drops and frustration grows.", fc1_back_title: "Real fundamentals", fc1_back_desc: "I teach posture and correct touch to evolve fast.",
@@ -826,30 +835,29 @@
                 fc3_front_title: "Don't know how to practice", fc3_front_desc: "Without a method, solo practice doesn't work.", fc3_back_title: "Drills for life", fc3_back_desc: "You leave with sequences to practice anywhere.",
                 fc4_front_title: "Don't know how to compete", fc4_front_desc: "Competitive altinha has rules you only learn with guidance.", fc4_back_title: "Game vision", fc4_back_desc: "Game tactics, ball reading, and real positioning.", fc_tap: "tap to see", fc_btn: "Book now",
                 about_title: "Who is Samurai?", 
-                about_p1: "I'm Wallace \"Samurai\" Costa. Creator of a unique methodology at Praia da Macumba, my mission is to make you master altinha with technique and confidence, from zero to advanced.", 
-                about_b1: "Exclusive methodology perfectly adapted to your level.",
-                about_b2: "Dynamic training entirely focused on the real beach fundamentals.",
-                about_b3: "Learn to play without fear in any game circle in Brazil.",
+                about_p1: "I'm Alan Schimidt, the \"Samurai\". Creator of a unique methodology at Praia da Macumba. My mission is to make you master altinha with technique.", 
+                about_b1: "Exclusive methodology adapted to your level.",
+                about_b2: "Training focused on real fundamentals.",
+                about_b3: "Learn to play without fear in any circle.",
                 about_cta_wa: "Talk on WhatsApp", about_cta_ig: "See Instagram", stat_1: "Trained students", stat_2: "Years at Macumba", stat_3: "Levels attended",
                 quiz_title: "Find your ideal class", q_step: "Step",
                 qr_title: "Perfect! Your class is ready.", qr_desc: "Send your answers via WhatsApp to check availability and start.", qr_btn: "Talk to Samurai now",
                 lvl_title: "Choose your plan", lvl_sub: "Swipe to see options", l_consult: "Consult price",
                 l1_title: "Silver", l1_target: "Beginners", l1_f1: "Fundamentals and posture", l1_f2: "Basic sequences", l1_f3: "First contact with circle", l1_btn: "Consult Silver",
                 l2_badge: "Recommended", l2_title: "Gold", l2_target: "Intermediate", l2_f1: "Dominant touch technique", l2_f2: "Circle dynamics and rhythm", l2_f3: "Advanced ball reading", l2_btn: "Consult Gold",
-                l3_title: "Individual", l3_target: "Personal / VIP", l3_f1: "100% exclusive attention", l3_f2: "Meticulous correction", l3_f3: "Accelerated evolution", l3_btn: "Consult Individual",
-                l4_title: "Hostel", l4_target: "CabanaCopa Guests", l4_f1: "Special partner rate", l4_f2: "Guest integration", l4_f3: "Carioca experience", l4_btn: "Consult Partner",
+                l3_title: "Diamond", l3_target: "Personal / VIP", l3_f1: "100% exclusive attention", l3_f2: "Meticulous correction", l3_f3: "Accelerated evolution", l3_btn: "Consult Diamond",
                 test_title: "What they say", t1_loc: "Recreio, RJ", t2_loc: "Barra da Tijuca, RJ", t3_loc: "Tourist, USA",
                 t1_text: "\"Absurd evolution. Samurai knows exactly what to fix.\"", t2_text: "\"I was dying of shame. His patience made me lose fear on the first day.\"", t3_text: "\"Great experience! Samurai is an amazing coach.\"",
                 faq_title: "Frequently asked questions", f1_q: "Do I need experience to start?", f1_a: "Not at all! We have exclusive levels for beginners. The idea is to teach you from scratch.", f2_q: "What equipment is needed?", f2_a: "Just you and beach clothes. Bring sunscreen and water. I bring the ball.", f6_q: "Do I need to bring my own ball?", f6_a: "No! We provide the best official balls (Mikasa) for high quality.", f7_q: "How long is each class?", f7_a: "Average 1 hour, divided between warm-up, technique and practical gameplay.", f5_q: "Available times?", f5_a: "We have early morning and late afternoon times. Text on WhatsApp to arrange.",
                 map_title: "Where we are", map_lbl_loc: "Meeting Point", map_val_loc: "Praia da Macumba, Recreio.<br>Access via the surfers' kiosk point.", map_cta_book: "Book class", map_cta_route: "Get directions",
-                final_title: "Master altinha and play with confidence.", final_subtitle: "Learn with someone who breathes the sport. Gain technique, make friends and stand out in any circle in Brazil.", final_cta: "Book my class now",
+                final_title: "Master altinha and live the true beach essence.", final_subtitle: "Learn with someone who breathes the sport. Gain technique, make friends and stand out in any circle.", final_cta: "Book my class now",
                 footer_auth: "The leading altinha school in Recreio dos Bandeirantes. Transforming the Rio lifestyle through sports.", footer_prod: "Produced by Montana"
             },
             es: {
                 preload_title: "La verdadera esencia", preload_sub: "Preparando tu experiencia...",
                 nav_about: "Instructor", nav_levels: "Planes", nav_testimonials: "Opiniones", nav_faq: "FAQ", nav_cta: "Reservar clase",
                 hero_title_1: "Aprende altinha con un", hero_title_2: "local de la playa.", hero_subtitle: "Clases en Praia da Macumba con Samurai — desde principiantes absolutos hasta avanzados que quieren dominar la técnica real.", hero_btn_primary: "Empezar ahora", hero_btn_secondary: "Ver niveles",
-                badge_5: "5/5 en Google", badge_2: "Al aire libre", badge_3: "Instructor Certificado", badge_6: "Fotos increíbles incluidas", badge_7: "Ritmo Adaptado",
+                badge_5: "5/5 en Google", badge_3: "Guía Certificado", badge_6: "Fotos increíbles", badge_7: "Ritmo Adaptado",
                 vid_title: "Siente la energía", vid_sub: "Un vistazo de nuestras clases en Praia da Macumba.", vid_btn_on: "Activar Sonido",
                 ps_title: "¿Por qué aprender con un instructor hace la diferencia?",
                 fc1_front_title: "Golpeas mal y no mejoras", fc1_front_desc: "Sin técnica, el balón cae y la frustración crece.", fc1_back_title: "Fundamentos reales", fc1_back_desc: "Enseño postura y toque correcto para evolucionar rápido.",
@@ -857,23 +865,22 @@
                 fc3_front_title: "No sabes cómo practicar", fc3_front_desc: "Sin método, la práctica individual no funciona.", fc3_back_title: "Ejercicios para la vida", fc3_back_desc: "Sales con secuencias para practicar en cualquier lado.",
                 fc4_front_title: "No sabes competir", fc4_front_desc: "La altinha competitiva tiene reglas que solo aprendes con guía.", fc4_back_title: "Visión de juego", fc4_back_desc: "Tácticas de juego, lectura de balón y posicionamiento real.", fc_tap: "toca para ver", fc_btn: "Reservar ahora",
                 about_title: "¿Quién es Samurai?", 
-                about_p1: "Soy Wallace \"Samurai\" Costa. Creador de una metodología única en Praia da Macumba, mi misión es hacerte dominar la altinha con técnica y confianza, de cero a avanzado.", 
-                about_b1: "Metodología exclusiva adaptada perfectamente a tu nivel.",
-                about_b2: "Entrenamientos enfocados en los fundamentos reales de playa.",
-                about_b3: "Aprende a jugar sin miedo en cualquier rueda de Brasil.",
+                about_p1: "Soy Alan Schimidt, el \"Samurai\". Creador de una metodología única en Praia da Macumba. Mi misión es hacerte dominar la altinha con técnica.", 
+                about_b1: "Metodología exclusiva adaptada a tu nivel.",
+                about_b2: "Entrenamientos enfocados en los fundamentos reales.",
+                about_b3: "Aprende a jugar sin miedo en cualquier rueda.",
                 about_cta_wa: "Hablar por WhatsApp", about_cta_ig: "Ver Instagram", stat_1: "Alumnos formados", stat_2: "Años en Macumba", stat_3: "Niveles atendidos",
                 quiz_title: "Encuentra tu clase ideal", q_step: "Paso",
                 qr_title: "¡Perfecto! Tu clase está lista.", qr_desc: "Envía tus respuestas por WhatsApp para verificar disponibilidad y empezar.", qr_btn: "Hablar con Samurai ahora",
                 lvl_title: "Elige tu plan", lvl_sub: "Desliza para ver opciones", l_consult: "Consultar precio",
                 l1_title: "Plata", l1_target: "Principiantes", l1_f1: "Fundamentos y postura", l1_f2: "Secuencias básicas", l1_f3: "Primer contacto con círculo", l1_btn: "Consultar Plata",
                 l2_badge: "Recomendado", l2_title: "Oro", l2_target: "Intermedios", l2_f1: "Técnica de toque dominante", l2_f2: "Dinámicas de rueda y ritmo", l2_f3: "Lectura de balón avanzada", l2_btn: "Consultar Oro",
-                l3_title: "Individual", l3_target: "Personal / VIP", l3_f1: "Atención 100% exclusiva", l3_f2: "Corrección minuciosa", l3_f3: "Evolución acelerada", l3_btn: "Consultar Individual",
-                l4_title: "Hostel", l4_target: "Huéspedes CabanaCopa", l4_f1: "Tarifa especial partner", l4_f2: "Integración de huéspedes", l4_f3: "Experiencia carioca", l4_btn: "Consultar Partner",
+                l3_title: "Diamante", l3_target: "Personal / VIP", l3_f1: "Atención 100% exclusiva", l3_f2: "Corrección minuciosa", l3_f3: "Evolución acelerada", l3_btn: "Consultar Diamante",
                 test_title: "Lo que dicen de nosotros", t1_loc: "Recreio, RJ", t2_loc: "Barra da Tijuca, RJ", t3_loc: "Tourist, USA",
                 t1_text: "\"Evolución absurda. Samurai sabe exactamente qué corregir.\"", t2_text: "\"Me moría de vergüenza. Su paciencia me hizo perder el miedo el primer día.\"", t3_text: "\"Great experience! Samurai is an amazing coach.\"",
                 faq_title: "Preguntas frecuentes", f1_q: "¿Necesito experiencia para empezar?", f1_a: "¡Para nada! Tenemos niveles para principiantes. La idea es enseñarte desde cero.", f2_q: "¿Qué equipo se necesita?", f2_a: "Ropa de playa, protector solar y agua. Yo llevo el balón.", f6_q: "¿Necesito llevar mi propio balón?", f6_a: "¡No! Proporcionamos balones oficiales (Mikasa) de alta calidad.", f7_q: "¿Cuánto dura cada clase?", f7_a: "Promedio 1 hora, dividida entre calentamiento, técnica y juego.", f5_q: "¿Horarios disponibles?", f5_a: "Tenemos temprano en la mañana y final de la tarde. Escribe para coordinar.",
                 map_title: "Dónde estamos", map_lbl_loc: "Punto de Encuentro", map_val_loc: "Praia da Macumba, Recreio.<br>Acceso por el quiosco de surfistas.", map_cta_book: "Agendar clase", map_cta_route: "Trazar ruta",
-                final_title: "Domina la altinha y juega con confianza.", final_subtitle: "Aprende con quienes respiran el deporte. Gana técnica, haz amigos y destaca en cualquier rueda de Brasil.", final_cta: "Reservar mi clase ahora",
+                final_title: "Domina la altinha y vive la verdadera esencia.", final_subtitle: "Aprende con quienes respiran el deporte. Gana técnica, haz amigos y destaca en cualquier rueda de Brasil.", final_cta: "Reservar mi clase ahora",
                 footer_auth: "La principal escuela de altinha de Recreio dos Bandeirantes. Transformando el estilo de vida carioca.", footer_prod: "Producido por Montana"
             }
         };
@@ -896,8 +903,9 @@
             const mobBtn = document.getElementById('lang-' + lang + '-mob');
             if(mobBtn) mobBtn.classList.remove('opacity-50', 'border-transparent'), mobBtn.classList.add('opacity-100', 'border-sky', 'scale-110');
 
-            const rollerText = lang === 'pt' ? "Aulas de altinha na Praia da Macumba • Atendimento em PT, EN e ES • Vagas limitadas" : (lang === 'en' ? "Altinha classes at Praia da Macumba • Service in EN, PT & ES • Limited spots" : "Clases de altinha en Praia da Macumba • Servicio en ES, PT y EN • Cupos limitados");
-            document.getElementById('topbar-roller').innerHTML = `<div class="marquee-wrapper"><div class="marquee-content" style="animation-duration: 20s"><span>${rollerText}</span><span>${rollerText}</span><span>${rollerText}</span></div></div>`;
+            const rollerText = lang === 'pt' ? "Aulas de altinha na Praia da Macumba • Atendimento em PT, EN e ES • Vagas limitadas • " : (lang === 'en' ? "Altinha classes at Praia da Macumba • Service in EN, PT & ES • Limited spots • " : "Clases de altinha en Praia da Macumba • Servicio en ES, PT y EN • Cupos limitados • ");
+            const spanHTML = `<span>${rollerText}</span><span>${rollerText}</span><span>${rollerText}</span><span>${rollerText}</span>`;
+            document.getElementById('topbar-roller').innerHTML = `<div class="marquee-wrapper"><div class="marquee-content" style="animation-duration: 20s">${spanHTML}</div><div class="marquee-content" aria-hidden="true" style="animation-duration: 20s">${spanHTML}</div></div>`;
             renderQuizStep(); 
         }
 
@@ -938,7 +946,7 @@
 
                 let backBtnHTML = '';
                 if(currentStep > 0) {
-                    backBtnHTML = `<button onclick="prevQuizStep()" class="absolute -top-12 left-0 inline-flex items-center gap-1.5 px-3 py-1 bg-surface-2 hover:bg-surface border border-border rounded-full text-xs font-bold text-text-muted hover:text-sky transition-all z-10"><i data-lucide="arrow-left" class="w-3 h-3"></i></button>`;
+                    backBtnHTML = `<button onclick="prevQuizStep()" class="absolute -top-14 left-0 inline-flex items-center justify-center w-8 h-8 bg-surface-2 hover:bg-surface border border-border rounded-full text-text-muted hover:text-sky transition-all z-10"><i data-lucide="arrow-left" class="w-4 h-4"></i></button>`;
                 }
 
                 const q = quizData[currentStep];
@@ -994,7 +1002,7 @@
             lucide.createIcons(); setLang('pt');
             setTimeout(() => { const preloader = document.getElementById('preloader'); preloader.style.opacity = '0'; setTimeout(() => preloader.style.display = 'none', 500); }, 1000); 
 
-            // Slider drag
+            // Slider drag scroll effect
             const slider = document.querySelector('#plans-carousel');
             if (slider) {
                 let isDown = false, startX, scrollLeft;
