@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Altinha Com Samurai | Aulas na Praia da Macumba</title>
     <meta name="description" content="Aprenda altinha na Praia da Macumba com o Samurai. Aulas para iniciantes, intermediários e avançados. Recreio dos Bandeirantes, Rio de Janeiro. Agende pelo WhatsApp.">
-    Q
+    
     <!-- Open Graph -->
     <meta property="og:title" content="Altinha Com Samurai | Aulas de Altinha no RJ">
     <meta property="og:description" content="Treine com método, evolua com consistência e viva a cultura da praia carioca com quem realmente vive isso.">
@@ -60,6 +60,17 @@
 
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Proteção de Imagens (Evita salvar segurando o dedo no mobile) */
+        img {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none;   /* Safari */
+            -khtml-user-select: none;    /* Konqueror HTML */
+            -moz-user-select: none;      /* Old versions of Firefox */
+            -ms-user-select: none;       /* Internet Explorer/Edge */
+            user-select: none;           /* Non-prefixed version */
+            -webkit-user-drag: none;     /* Impede arrastar no PC */
+        }
 
         /* Shine Effects */
         .shine-effect { position: relative; overflow: hidden; }
@@ -122,7 +133,7 @@
 
     <!-- Preloader -->
     <div id="preloader" class="fixed inset-0 bg-bg flex flex-col items-center justify-center">
-        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo Samurai" class="w-24 h-24 mb-6 rounded-full shadow-lg">
+        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo Samurai" class="w-24 h-24 mb-6 rounded-full shadow-lg" draggable="false">
         <h2 class="font-display text-lg sm:text-xl md:text-2xl text-text mb-2 tracking-wide text-center px-4 leading-snug" data-i18n="preload_title">A verdadeira essência da praia</h2>
         <p class="text-text-muted text-sm mb-6" data-i18n="preload_sub">Preparando sua experiência...</p>
         <div class="w-48 h-1 bg-surface rounded-full overflow-hidden">
@@ -133,7 +144,7 @@
     <!-- Topbar Roller -->
     <div class="bg-sky h-[36px] flex items-center justify-center overflow-hidden relative z-50">
         <div id="topbar-roller" class="text-[#0A1628] font-bold text-sm text-center px-4 w-full transition-opacity duration-500 flex">
-            <!-- Conteúdo injetado via JS em duplicidade para loop contínuo -->
+            <!-- Conteúdo injetado via JS -->
         </div>
     </div>
 
@@ -141,7 +152,7 @@
     <nav class="sticky top-0 z-40 bg-bg/95 backdrop-blur-md border-b border-border transition-all duration-300" id="navbar">
         <div class="max-w-[1100px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2">
-                <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo" class="w-10 h-10 rounded-full">
+                <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo" class="w-10 h-10 rounded-full" draggable="false">
                 <div class="flex flex-col">
                     <span class="font-display text-xl text-text leading-tight tracking-wide">Altinha</span>
                     <span class="text-[10px] text-sky font-bold uppercase tracking-widest leading-none">Com Samurai</span>
@@ -158,30 +169,30 @@
                 <!-- Bandeiras Desktop -->
                 <div class="flex items-center gap-2 bg-surface rounded-full p-1.5 border border-border">
                     <button onclick="setLang('pt')" id="lang-pt" class="lang-btn w-6 h-6 rounded-full overflow-hidden border-2 border-transparent hover:scale-110 transition-transform">
-                        <img src="https://flagcdn.com/w40/br.png" alt="PT" class="w-full h-full object-cover">
+                        <img src="https://flagcdn.com/w40/br.png" alt="PT" class="w-full h-full object-cover" draggable="false">
                     </button>
                     <button onclick="setLang('en')" id="lang-en" class="lang-btn w-6 h-6 rounded-full overflow-hidden border-2 border-transparent hover:scale-110 transition-transform opacity-50">
-                        <img src="https://flagcdn.com/w40/us.png" alt="EN" class="w-full h-full object-cover">
+                        <img src="https://flagcdn.com/w40/us.png" alt="EN" class="w-full h-full object-cover" draggable="false">
                     </button>
                     <button onclick="setLang('es')" id="lang-es" class="lang-btn w-6 h-6 rounded-full overflow-hidden border-2 border-transparent hover:scale-110 transition-transform opacity-50">
-                        <img src="https://flagcdn.com/w40/es.png" alt="ES" class="w-full h-full object-cover">
+                        <img src="https://flagcdn.com/w40/es.png" alt="ES" class="w-full h-full object-cover" draggable="false">
                     </button>
                 </div>
 
-                <a href="https://wa.me/5521900000000" target="_blank" class="bg-sky text-[#0A1628] font-bold rounded-full px-6 py-2 shine-effect hover:scale-105 transition-transform" data-i18n="nav_cta">Agendar aula</a>
+                <a href="https://wa.me/5521983565005" target="_blank" class="bg-sky text-[#0A1628] font-bold rounded-full px-6 py-2 shine-effect hover:scale-105 transition-transform" data-i18n="nav_cta">Agendar aula</a>
             </div>
 
             <!-- Mobile Actions -->
             <div class="flex items-center gap-3 lg:hidden">
                 <div class="flex items-center gap-1.5 bg-surface rounded-full p-1 border border-border">
                     <button onclick="setLang('pt')" id="lang-pt-mob" class="lang-btn w-5 h-5 rounded-full overflow-hidden border-2 border-transparent hover:scale-110 transition-transform">
-                        <img src="https://flagcdn.com/w40/br.png" alt="PT" class="w-full h-full object-cover">
+                        <img src="https://flagcdn.com/w40/br.png" alt="PT" class="w-full h-full object-cover" draggable="false">
                     </button>
                     <button onclick="setLang('en')" id="lang-en-mob" class="lang-btn w-5 h-5 rounded-full overflow-hidden border-2 border-transparent hover:scale-110 transition-transform opacity-50">
-                        <img src="https://flagcdn.com/w40/us.png" alt="EN" class="w-full h-full object-cover">
+                        <img src="https://flagcdn.com/w40/us.png" alt="EN" class="w-full h-full object-cover" draggable="false">
                     </button>
                     <button onclick="setLang('es')" id="lang-es-mob" class="lang-btn w-5 h-5 rounded-full overflow-hidden border-2 border-transparent hover:scale-110 transition-transform opacity-50">
-                        <img src="https://flagcdn.com/w40/es.png" alt="ES" class="w-full h-full object-cover">
+                        <img src="https://flagcdn.com/w40/es.png" alt="ES" class="w-full h-full object-cover" draggable="false">
                     </button>
                 </div>
                 <button id="mobile-menu-btn" aria-label="Menu" class="text-text">
@@ -195,7 +206,7 @@
     <div id="mobile-drawer" class="fixed inset-y-0 right-0 w-[75vw] max-w-[300px] bg-surface z-50 transform translate-x-full transition-transform duration-300 border-l border-border flex flex-col">
         <div class="p-4 flex justify-between items-center border-b border-border/50">
             <div class="flex items-center gap-2">
-                <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo" class="w-8 h-8 rounded-full">
+                <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo" class="w-8 h-8 rounded-full" draggable="false">
                 <span class="font-display text-text text-sm tracking-wide">Altinha</span>
             </div>
             <button id="close-drawer-btn" class="text-text-muted hover:text-text p-2">
@@ -207,7 +218,7 @@
             <a href="#levels" class="text-text text-lg font-medium drawer-link" data-i18n="nav_levels">Planos</a>
             <a href="#testimonials" class="text-text text-lg font-medium drawer-link" data-i18n="nav_testimonials">Depoimentos</a>
             <a href="#faq" class="text-text text-lg font-medium drawer-link" data-i18n="nav_faq">FAQ</a>
-            <a href="https://wa.me/5521900000000" class="mt-4 bg-sky text-[#0A1628] font-bold rounded-full py-3 text-center w-full shine-effect" data-i18n="nav_cta">Agendar aula</a>
+            <a href="https://wa.me/5521983565005" class="mt-4 bg-sky text-[#0A1628] font-bold rounded-full py-3 text-center w-full shine-effect" data-i18n="nav_cta">Agendar aula</a>
         </div>
     </div>
     <div id="drawer-overlay" class="fixed inset-0 bg-black/50 z-40 hidden transition-opacity opacity-0"></div>
@@ -217,9 +228,10 @@
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-[#0A1628] opacity-30 z-10"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-bg via-[#0A1628]/40 to-transparent z-10"></div>
+            <!-- Imagem Mobile -->
             <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776793274/ssas_mrupvr.jpg" 
                  alt="Treino na Praia" 
-                 class="w-full h-full object-cover object-center opacity-90 mix-blend-overlay">
+                 class="w-full h-full object-cover object-center block md:hidden mix-blend-overlay" draggable="false">
         </div>
 
         <div class="max-w-[1100px] mx-auto relative z-20 text-center flex flex-col items-center">
@@ -252,7 +264,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
-                <a href="https://wa.me/5521900000000" target="_blank" class="bg-sky text-[#0A1628] font-bold rounded-full px-8 py-4 w-full sm:w-auto text-center shine-effect hover:scale-105 transition-transform flex items-center justify-center gap-2 btn-pulse">
+                <a href="https://wa.me/5521983565005" target="_blank" class="bg-sky text-[#0A1628] font-bold rounded-full px-8 py-4 w-full sm:w-auto text-center shine-effect hover:scale-105 transition-transform flex items-center justify-center gap-2 btn-pulse">
                     <span data-i18n="hero_btn_primary">Quero começar agora</span>
                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
@@ -270,7 +282,6 @@
             <p class="text-text-muted mb-8 max-w-xl mx-auto" data-i18n="vid_sub">Um pouco de como são as aulas na Praia da Macumba com a nossa galera.</p>
             
             <div class="relative w-full max-w-[320px] md:max-w-[360px] mx-auto rounded-3xl overflow-hidden shadow-2xl border border-border aspect-[4/5] bg-bg group">
-                <!-- Object bottom fixa o enquadramento na base para não cortar as pessoas jogando -->
                 <video id="promo-video" src="https://res.cloudinary.com/dm9mnc97u/video/upload/v1776732262/VEM_CONHECER_O_ESPORTE_QUE_MAIS_CRESCE_NO_BRASIL_%EF%B8%8F_Imagens-edi%C3%A7%C3%A3o-_ronygomess__j4ikne.mp4" loop muted playsinline class="w-full h-full object-cover object-bottom"></video>
                 
                 <div class="absolute inset-0 bg-black/20 flex flex-col items-center justify-center cursor-pointer" onclick="toggleVideo()">
@@ -306,7 +317,7 @@
                             <i data-lucide="check-circle-2" class="w-6 h-6 md:w-8 md:h-8 text-teal mb-3 mx-auto"></i>
                             <h3 class="font-display text-base md:text-lg text-sky mb-2 leading-tight" data-i18n="fc1_back_title">Fundamentos reais</h3>
                             <p class="text-text/90 text-[10px] md:text-xs mb-3" data-i18n="fc1_back_desc">Ensino postura, timing e toque correto para evoluir rápido.</p>
-                            <a href="https://wa.me/5521900000000" class="inline-block bg-sky text-[#0A1628] text-[10px] md:text-xs font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2 mx-auto shine-effect" onclick="event.stopPropagation()" data-i18n="fc_btn">Agendar agora</a>
+                            <a href="https://wa.me/5521983565005" class="inline-block bg-sky text-[#0A1628] text-[10px] md:text-xs font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2 mx-auto shine-effect" onclick="event.stopPropagation()" data-i18n="fc_btn">Agendar agora</a>
                         </div>
                     </div>
                 </div>
@@ -324,7 +335,7 @@
                             <i data-lucide="users" class="w-6 h-6 md:w-8 md:h-8 text-teal mb-3 mx-auto"></i>
                             <h3 class="font-display text-base md:text-lg text-sky mb-2 leading-tight" data-i18n="fc2_back_title">Ambiente acolhedor</h3>
                             <p class="text-text/90 text-[10px] md:text-xs mb-3" data-i18n="fc2_back_desc">Aulas focadas no seu ritmo. Ninguém é deixado de lado.</p>
-                            <a href="https://wa.me/5521900000000" class="inline-block bg-sky text-[#0A1628] text-[10px] md:text-xs font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2 mx-auto shine-effect" onclick="event.stopPropagation()" data-i18n="fc_btn">Agendar agora</a>
+                            <a href="https://wa.me/5521983565005" class="inline-block bg-sky text-[#0A1628] text-[10px] md:text-xs font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2 mx-auto shine-effect" onclick="event.stopPropagation()" data-i18n="fc_btn">Agendar agora</a>
                         </div>
                     </div>
                 </div>
@@ -342,7 +353,7 @@
                             <i data-lucide="footprints" class="w-6 h-6 md:w-8 md:h-8 text-teal mb-3 mx-auto"></i>
                             <h3 class="font-display text-base md:text-lg text-sky mb-2 leading-tight" data-i18n="fc3_back_title">Drills para a vida</h3>
                             <p class="text-text/90 text-[10px] md:text-xs mb-3" data-i18n="fc3_back_desc">Você sai com sequências para praticar em qualquer lugar.</p>
-                            <a href="https://wa.me/5521900000000" class="inline-block bg-sky text-[#0A1628] text-[10px] md:text-xs font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2 mx-auto shine-effect" onclick="event.stopPropagation()" data-i18n="fc_btn">Agendar agora</a>
+                            <a href="https://wa.me/5521983565005" class="inline-block bg-sky text-[#0A1628] text-[10px] md:text-xs font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2 mx-auto shine-effect" onclick="event.stopPropagation()" data-i18n="fc_btn">Agendar agora</a>
                         </div>
                     </div>
                 </div>
@@ -360,7 +371,7 @@
                             <i data-lucide="trophy" class="w-6 h-6 md:w-8 md:h-8 text-teal mb-3 mx-auto"></i>
                             <h3 class="font-display text-base md:text-lg text-sky mb-2 leading-tight" data-i18n="fc4_back_title">Visão de jogo</h3>
                             <p class="text-text/90 text-[10px] md:text-xs mb-3" data-i18n="fc4_back_desc">Táticas de jogo, leitura de bola e posicionamento real.</p>
-                            <a href="https://wa.me/5521900000000" class="inline-block bg-sky text-[#0A1628] text-[10px] md:text-xs font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2 mx-auto shine-effect" onclick="event.stopPropagation()" data-i18n="fc_btn">Agendar agora</a>
+                            <a href="https://wa.me/5521983565005" class="inline-block bg-sky text-[#0A1628] text-[10px] md:text-xs font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2 mx-auto shine-effect" onclick="event.stopPropagation()" data-i18n="fc_btn">Agendar agora</a>
                         </div>
                     </div>
                 </div>
@@ -368,7 +379,7 @@
         </div>
     </section>
 
-    <!-- Separador Decorativo -->
+    <!-- Elemento Decorativo (Onda) -->
     <div class="w-full overflow-hidden leading-none bg-surface border-t border-border mt-10">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[30px] md:h-[40px]">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0A1628"></path>
@@ -377,7 +388,7 @@
 
     <!-- Sobre o Instrutor -->
     <section id="about" class="py-20 bg-surface relative bg-pattern-dots reveal">
-        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] opacity-[0.02] pointer-events-none grayscale z-0">
+        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] opacity-[0.02] pointer-events-none grayscale z-0" draggable="false">
 
         <div class="max-w-[1100px] mx-auto px-4 flex flex-col md:flex-row items-center gap-12 relative z-10">
             <div class="w-full md:w-1/3 flex justify-center">
@@ -385,7 +396,7 @@
                     <div class="absolute inset-0 bg-sky/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
                     <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731395/WhatsApp_Image_2026-04-20_at_21.27.37_ulbrmk.jpg" 
                          alt="Wallace Samurai Costa" 
-                         class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700">
+                         class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700" draggable="false">
                 </div>
             </div>
 
@@ -400,10 +411,10 @@
                 </ul>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-10">
-                    <a href="https://wa.me/5521900000000" target="_blank" class="flex-1 bg-sky text-[#0A1628] font-bold rounded-full px-6 py-3 text-center shine-effect flex items-center justify-center gap-2 hover:scale-105 transition">
+                    <a href="https://wa.me/5521983565005" target="_blank" class="flex-1 bg-sky text-[#0A1628] font-bold rounded-full px-6 py-3 text-center shine-effect flex items-center justify-center gap-2 hover:scale-105 transition">
                         <i data-lucide="message-circle" class="w-5 h-5"></i><span data-i18n="about_cta_wa">Falar no WhatsApp</span>
                     </a>
-                    <a href="https://instagram.com/altinhacomsamurai" target="_blank" class="flex-1 bg-transparent border-2 border-sky text-sky font-bold rounded-full px-6 py-3 text-center flex items-center justify-center gap-2 hover:bg-sky/10 transition shine-effect">
+                    <a href="https://www.instagram.com/samuraialta7/" target="_blank" class="flex-1 bg-transparent border-2 border-sky text-sky font-bold rounded-full px-6 py-3 text-center flex items-center justify-center gap-2 hover:bg-sky/10 transition shine-effect">
                         <svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                         <span data-i18n="about_cta_ig">Ver Instagram</span>
                     </a>
@@ -444,7 +455,7 @@
 
     <!-- Quiz Interativo -->
     <section id="quiz" class="py-20 px-4 reveal relative">
-        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] opacity-[0.02] pointer-events-none grayscale z-0">
+        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] opacity-[0.02] pointer-events-none grayscale z-0" draggable="false">
         <div class="max-w-2xl mx-auto bg-surface border border-border rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden z-10">
             <div class="absolute top-0 left-0 w-full h-1.5 bg-bg">
                 <div id="quiz-progress" class="h-full bg-teal w-[20%] transition-all duration-500"></div>
@@ -470,7 +481,7 @@
 
     <!-- Planos (Carrossel Horizontal Arrastável) -->
     <section id="levels" class="py-20 px-4 bg-surface-2 relative bg-pattern-grid reveal">
-        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] opacity-[0.02] pointer-events-none grayscale z-0">
+        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] opacity-[0.02] pointer-events-none grayscale z-0" draggable="false">
         
         <div class="max-w-[1100px] mx-auto relative z-10">
             <div class="text-center mb-12">
@@ -478,7 +489,6 @@
                 <p class="text-text-muted" data-i18n="lvl_sub">Arraste para os lados para ver as opções</p>
             </div>
 
-            <!-- Alterado w-[85vw] para w-[80vw] no card para encaixe peeking -->
             <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pt-8 pb-8 hide-scrollbar px-4 w-full max-w-[1050px] mx-auto" id="plans-carousel">
                 
                 <!-- Prata -->
@@ -492,7 +502,7 @@
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-gray-400 shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l1_f2">Sequências básicas</span></li>
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-gray-400 shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l1_f3">Primeiro contato com roda</span></li>
                     </ul>
-                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Prata" class="w-full block text-center bg-transparent border border-gray-400 text-gray-300 font-bold py-3 rounded-full hover:bg-gray-400/10 transition text-sm" data-i18n="l1_btn">Consultar Prata</a>
+                    <a href="https://wa.me/5521983565005?text=Quero%20saber%20sobre%20o%20plano%20Prata" class="w-full block text-center bg-transparent border border-gray-400 text-gray-300 font-bold py-3 rounded-full hover:bg-gray-400/10 transition text-sm" data-i18n="l1_btn">Consultar Prata</a>
                 </div>
 
                 <!-- Ouro (Destaque) -->
@@ -507,7 +517,7 @@
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l2_f2">Dinâmicas de roda e ritmo</span></li>
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l2_f3">Leitura de bola avançada</span></li>
                     </ul>
-                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Ouro" class="w-full block text-center bg-yellow-400 text-[#0A1628] font-bold py-3 rounded-full hover:scale-105 transition shadow-lg shine-effect text-sm" data-i18n="l2_btn">Consultar Ouro</a>
+                    <a href="https://wa.me/5521983565005?text=Quero%20saber%20sobre%20o%20plano%20Ouro" class="w-full block text-center bg-yellow-400 text-[#0A1628] font-bold py-3 rounded-full hover:scale-105 transition shadow-lg shine-effect text-sm" data-i18n="l2_btn">Consultar Ouro</a>
                 </div>
 
                 <!-- Diamante (Individual) -->
@@ -521,7 +531,7 @@
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-sky shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l3_f2">Correção minuciosa</span></li>
                         <li class="flex gap-2 items-start"><i data-lucide="check" class="w-4 h-4 text-sky shrink-0 mt-0.5"></i><span class="text-sm text-text-muted" data-i18n="l3_f3">Evolução acelerada</span></li>
                     </ul>
-                    <a href="https://wa.me/5521900000000?text=Quero%20saber%20sobre%20o%20plano%20Diamante" class="w-full block text-center bg-transparent border border-sky text-sky font-bold py-3 rounded-full hover:bg-sky/10 transition text-sm" data-i18n="l3_btn">Consultar Diamante</a>
+                    <a href="https://wa.me/5521983565005?text=Quero%20saber%20sobre%20o%20plano%20Diamante" class="w-full block text-center bg-transparent border border-sky text-sky font-bold py-3 rounded-full hover:bg-sky/10 transition text-sm" data-i18n="l3_btn">Consultar Diamante</a>
                 </div>
 
             </div>
@@ -642,12 +652,12 @@
     <section class="bg-sky py-3 overflow-hidden relative z-20 reveal">
         <div class="marquee-wrapper">
             <div class="marquee-content marquee-reverse font-display text-[#0A1628] text-sm uppercase tracking-wider">
-                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521900000000" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
-                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521900000000" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
+                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521983565005" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
+                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521983565005" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
             </div>
             <div class="marquee-content marquee-reverse font-display text-[#0A1628] text-sm uppercase tracking-wider" aria-hidden="true">
-                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521900000000" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
-                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521900000000" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
+                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521983565005" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
+                <span>Vagas limitadas por turma • Agende com antecedência • Aprenda altinha de verdade • <a href="https://wa.me/5521983565005" class="underline font-bold" target="_blank">Reserve sua vaga agora →</a> • </span>
             </div>
         </div>
     </section>
@@ -707,7 +717,7 @@
                     <p class="text-text-muted text-sm mb-6" data-i18n="map_val_loc">Praia da Macumba, Recreio dos Bandeirantes.<br>Acesso pelo quiosque point dos surfistas.</p>
                     
                     <div class="flex flex-col sm:flex-row gap-3">
-                        <a href="https://wa.me/5521900000000" target="_blank" class="flex-1 bg-sky text-[#0A1628] font-bold text-sm rounded-full py-3 flex items-center justify-center gap-2 hover:scale-105 transition-transform"><i data-lucide="message-circle" class="w-4 h-4"></i> <span data-i18n="map_cta_book">Agendar aula</span></a>
+                        <a href="https://wa.me/5521983565005" target="_blank" class="flex-1 bg-sky text-[#0A1628] font-bold text-sm rounded-full py-3 flex items-center justify-center gap-2 hover:scale-105 transition-transform"><i data-lucide="message-circle" class="w-4 h-4"></i> <span data-i18n="map_cta_book">Agendar aula</span></a>
                         <a href="https://www.google.com/maps/dir/?api=1&destination=-23.0283,-43.4785" target="_blank" class="flex-1 bg-transparent border-2 border-sky text-sky font-bold text-sm rounded-full py-3 flex items-center justify-center gap-2 hover:bg-sky/10 transition-colors"><i data-lucide="navigation" class="w-4 h-4"></i> <span data-i18n="map_cta_route">Traçar rota</span></a>
                     </div>
                 </div>
@@ -719,10 +729,10 @@
         </div>
     </section>
 
-    <!-- Separador Decorativo -->
-    <div class="w-full overflow-hidden leading-none bg-surface border-t border-border">
+    <!-- Elemento Decorativo (Onda Final) -->
+    <div class="w-full overflow-hidden leading-none bg-[#0A1628] border-t border-border">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[30px] md:h-[40px]">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0A1628"></path>
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#0D2137"></path>
         </svg>
     </div>
 
@@ -730,9 +740,10 @@
     <section id="final_cta" class="relative py-28 md:py-36 px-4 overflow-hidden reveal">
         <div class="absolute inset-0 z-0 bg-[#0A1628]">
             <div class="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/40 to-[#0A1628]/10 z-10"></div>
+            <!-- Imagem Mobile -->
             <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776793274/rv_ghfy44.jpg" 
                  alt="Fim de tarde na altinha" 
-                 class="w-full h-full object-cover object-center opacity-100">
+                 class="w-full h-full object-cover object-center block md:hidden mix-blend-overlay" draggable="false">
         </div>
 
         <div class="max-w-[800px] mx-auto relative z-20 text-center flex flex-col items-center mt-6">
@@ -742,7 +753,7 @@
             <p class="text-white text-[clamp(1.1rem,2.5vw,1.25rem)] max-w-2xl leading-relaxed mb-10 font-medium drop-shadow-md" data-i18n="final_subtitle">
                 Aprenda com quem respira o esporte. Ganhe técnica, faça amigos e seja destaque em qualquer roda do Brasil.
             </p>
-            <a href="https://wa.me/5521900000000" target="_blank" class="bg-sky text-[#0A1628] font-bold text-lg rounded-full px-10 py-4 shine-effect hover:scale-105 transition-transform btn-pulse flex items-center justify-center gap-2" data-i18n="final_cta">
+            <a href="https://wa.me/5521983565005" target="_blank" class="bg-sky text-[#0A1628] font-bold text-lg rounded-full px-10 py-4 shine-effect hover:scale-105 transition-transform btn-pulse flex items-center justify-center gap-2" data-i18n="final_cta">
                 <i data-lucide="message-circle" class="w-6 h-6"></i> Agendar minha aula agora
             </a>
         </div>
@@ -750,11 +761,11 @@
 
     <!-- Footer Profissional -->
     <footer class="bg-surface pt-16 pb-8 border-t border-border relative overflow-hidden">
-        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] opacity-[0.02] pointer-events-none grayscale">
+        <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] opacity-[0.02] pointer-events-none grayscale" draggable="false">
 
         <div class="max-w-[1100px] mx-auto px-4 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo" class="w-16 h-16 rounded-full mb-4 hover:grayscale-0 transition-all">
+                <img src="https://res.cloudinary.com/dm9mnc97u/image/upload/v1776731731/419274333_354505934012479_833875321074211996_n._1_dg2k1c.png" alt="Logo" class="w-16 h-16 rounded-full mb-4 hover:grayscale-0 transition-all" draggable="false">
                 <p class="text-text-muted text-sm max-w-xs" data-i18n="footer_auth">A principal escola de altinha do Recreio dos Bandeirantes. Transformando o estilo de vida carioca através do esporte.</p>
             </div>
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
@@ -769,8 +780,8 @@
             <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <h4 class="font-display text-white mb-4 text-lg">Contato</h4>
                 <div class="flex gap-4 mb-4">
-                    <a href="https://instagram.com/altinhacomsamurai" target="_blank" class="w-12 h-12 rounded-full bg-surface-2 border border-border flex items-center justify-center text-text-muted hover:text-sky hover:border-sky transition-all"><svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                    <a href="https://wa.me/5521900000000" target="_blank" class="w-12 h-12 rounded-full bg-surface-2 border border-border flex items-center justify-center text-text-muted hover:text-green hover:border-green transition-all"><svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+                    <a href="https://www.instagram.com/samuraialta7/" target="_blank" class="w-12 h-12 rounded-full bg-surface-2 border border-border flex items-center justify-center text-text-muted hover:text-sky hover:border-sky transition-all"><svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    <a href="https://wa.me/5521983565005" target="_blank" class="w-12 h-12 rounded-full bg-surface-2 border border-border flex items-center justify-center text-text-muted hover:text-green hover:border-green transition-all"><svg fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
                 </div>
                 <p class="text-sm text-text-muted">Praia da Macumba, RJ</p>
             </div>
@@ -783,10 +794,10 @@
     </footer>
 
     <!-- Botões Flutuantes fixos -->
-    <a href="https://wa.me/5521900000000" target="_blank" class="fixed bottom-24 right-5 w-[52px] h-[52px] bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-[0_4px_16px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-[9999] btn-pulse" aria-label="WhatsApp">
+    <a href="https://wa.me/5521983565005" target="_blank" class="fixed bottom-24 right-5 w-[52px] h-[52px] bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-[0_4px_16px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-[9999] btn-pulse" aria-label="WhatsApp">
         <svg fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     </a>
-    <a href="https://instagram.com/altinhacomsamurai" target="_blank" class="fixed bottom-6 right-5 w-[52px] h-[52px] rounded-full flex items-center justify-center text-white shadow-[0_4px_16px_rgba(220,39,67,0.35)] hover:scale-110 transition-transform z-[9999]" style="background: radial-gradient(circle at 30% 110%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);" aria-label="Instagram">
+    <a href="https://www.instagram.com/samuraialta7/" target="_blank" class="fixed bottom-6 right-5 w-[52px] h-[52px] rounded-full flex items-center justify-center text-white shadow-[0_4px_16px_rgba(220,39,67,0.35)] hover:scale-110 transition-transform z-[9999]" style="background: radial-gradient(circle at 30% 110%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);" aria-label="Instagram">
         <svg fill="currentColor" viewBox="0 0 24 24" class="w-[28px] h-[28px]"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
 
@@ -968,7 +979,7 @@
                 if(currentLang === 'es') summaryText = `¡Hola Samurai! Hice el test y quiero reservar.\n\n*Nivel:* ${answers[0]}\n*Personas:* ${answers[1]}\n*Objetivo:* ${answers[2]}\n*Horario:* ${answers[3]}\n*Soporte:* ${answers[4]}`;
 
                 const encoded = encodeURIComponent(summaryText);
-                const wpLink = `https://wa.me/5521900000000?text=${encoded}`;
+                const wpLink = `https://wa.me/5521983565005?text=${encoded}`;
 
                 container.innerHTML = `<div class="text-center animate-[fadeIn_0.5s_ease-out] pt-4"><div class="w-16 h-16 bg-teal/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-teal text-teal"><i data-lucide="check" class="w-8 h-8"></i></div><h3 class="text-2xl font-display text-text mb-2" data-i18n="qr_title">Perfeito! Sua aula está pronta.</h3><p class="text-text-muted mb-8" data-i18n="qr_desc">Envie suas respostas pelo WhatsApp para verificarmos os horários disponíveis e começarmos.</p><a href="${wpLink}" target="_blank" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-sky text-[#0A1628] font-bold rounded-full px-8 py-4 shine-effect hover:scale-105 transition btn-pulse" data-i18n="qr_btn"><i data-lucide="message-circle" class="w-5 h-5"></i> Falar com o Samurai agora</a><button onclick="resetQuiz()" class="mt-8 text-sm text-text-muted hover:text-white underline block mx-auto transition-colors">Refazer teste</button></div>`;
                 lucide.createIcons();
